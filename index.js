@@ -35,7 +35,15 @@ try {
 }
  })
  
- 
+ app.put('/edit/:id',async(req,res)=>{
+    try {
+       var data= await prodmodel.findByIdAndUpdate(req.params.id,req.body);
+       res.send("updated succesfully");
+
+    } catch (error) {
+        res.send(error.message)
+    }
+ })
 
 
 
